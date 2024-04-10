@@ -1,17 +1,17 @@
 import rtmidi
 
-def readMessage(msg, data):
-    print(msg)
+def read_message(message, data):
+    print(message) # Writes message to the terminal
 
-midiIn = rtmidi.MidiIn()
+midiIn = rtmidi.MidiIn() # Creates an instance of the MidiIn class
 
-print(f"Found ports: {midiIn.get_ports()}")
+print(f"Found ports: {midiIn.get_ports()}") # Writes available ports to the terminal
 
-midiIn.open_port(0)
+midiIn.open_port(0) # Opens the first available port
 
-midiIn.set_callback(readMessage)
+midiIn.set_callback(read_message) # Sets callback-function for handling MIDI messages
 
 with midiIn:
-    while True:
-        midiIn.get_message()
+    input("Press enter to quit\n") # Waits for user input to terminate
 
+del midiIn # Cleans up midiIn instance
