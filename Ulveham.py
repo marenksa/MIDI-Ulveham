@@ -21,9 +21,9 @@ class Track:
     # Send commands to MIDI device to change sound
     def change_sound(self, interface, sound):
 
-        interface.send_message([176, 0, self.sounds[sound][0]]) # Bank Select MSB
-        interface.send_message([176, 32, 0]) # Bank Select LSB
-        interface.send_message([192, self.sounds[sound][1]]) # Program Change
+        interface.send_message([0xB0, 0x00, self.sounds[sound][0]]) # Bank Select MSB
+        interface.send_message([0xB0, 0x20, 0]) # Bank Select LSB
+        interface.send_message([0xC0, self.sounds[sound][1]]) # Program Change
 
     # Reads in a score from a text file
     def add_score(self, scoreFile):
@@ -46,18 +46,21 @@ class Track:
         for item in self.score:
             # Play note from score
             if isinstance(item, int): 
-                interface.send_message([144, item, 60]) # We could have just sent ...
+                interface.send_message([0x90, item, 60]) # Note on
                 time.sleep(self.rests['-'])
-                interface.send_message([item, 0]) # Release the key
+                interface.send_message([item, 0]) # Note "off"
+
             # "Play" rest
             elif item in self.rests.keys():
                 time.sleep(self.rests[item])
+
             # Change sound
             elif item in self.sounds.keys(): 
                 if self.currentVoice != item: # If it's the same sound, we don't have to "change" it
                     self.currentVoice = item
                     self.change_sound(interface, item) 
-            # Ignore anything else
+
+            # Ignore anything we don't recognise
             else:
                 pass
 
@@ -74,10 +77,8 @@ def main():
     midiOut = rtmidi.MidiOut()
     midiOut.open_port(1)
 
-    with midiOut:
-        
+    with midiOut:  
         track.play(midiOut) # Play the track!
-
     del midiOut # Clean up
 
 main()
