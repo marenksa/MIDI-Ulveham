@@ -1,23 +1,40 @@
 import rtmidi
 import time
+import re
 
 # This class will handle the whole track
 class Track:
 
     # Basic info
-    bpm = 130
+    bpm = 120
+    beatsPerBar = 4
     score = []
     currentVoice = ''
     pedal = False
 
-    rests = {
-        '-': (2*60/bpm)/3, # 1/4th note triplet
-        '_' : 60/bpm # 1/4th note
+    time = {
+        'whole': 1,
+        'half': 1/2,
+        'quart' : 1/4,
+        'quart_dot' : 1/4 + 1/8,
+        'eight' : 1/8,
+        'sixteenth' : 1/16,
+        'triplet_half': 1/3,
+        'triplet_quart' : 1/6,
+        'triplet_quart_dot': 1/6 + 1/12,
+        'triplet_eight' : 1/12,
+        'triplet_sixteenth': 1/16
     }
     sounds = { #Casio Privia PX-410R Appendix Documentation: [Bank Select Sound Code (4), Program Change Sound Code (3)]
         'MV' : [100, 0], # Main voice 
         'BV' : [52, 16] # Backing vocal
     }
+
+    # How long should the note/rest be held
+    def calc_note_length(self, time_key):
+        
+        # note length * beats per measure * 
+        return self.time[time_key]*self.beatsPerBar*(60/self.bpm)
 
     # Send commands to MIDI device to change sound
     def change_sound(self, interface, sound):
@@ -31,32 +48,35 @@ class Track:
                 
         with open(scoreFile, "r") as f:
 
-            bars = [x.strip().split(' ') for x in f.readlines()]
+            fromFile = []
             
-            for bar in bars:
-                for i in range(len(bar)):
-                    if bar[i].isdigit():
-                        self.score.append(int(bar[i]))
-                    else:
-                        self.score.append(bar[i])
+            # Iterate through each line in the file
+            for line in f:
+                # Uses regex to find lines containing lists
+                match = re.match(r'\[(.*?)\]', line)
+                if match:
+                    fromFile.append(eval(match.group(0))) # Convert it to a python list
+
+            self.score = fromFile
 
     
     # Play the track indicated by the score
     def play(self, interface):
 
         for item in self.score:
+            key = item[0]
             # Play note from score
-            if isinstance(item, int): 
-                interface.send_message([0x90, item, 60]) # Note on
-                time.sleep(self.rests['-'])
-                interface.send_message([item, 0]) # Note "off"
+            if isinstance(key, int): 
+                interface.send_message([0x90, key, item[2]]) # Note on
+                time.sleep(self.calc_note_length(item[1]))
+                interface.send_message([key, 0]) # Note "off"
 
             # "Play" rest
-            elif item in self.rests.keys():
-                time.sleep(self.rests[item])
+            elif key == '-':
+                time.sleep(self.calc_note_length(item[1]))
 
             # Adjust pedal
-            elif item == 'P':
+            elif key == 'P':
                 if self.pedal: # If pedal is on, turn it off
                     interface.send_message([0xB0, 0x40, 0]) 
                 else: # If pedal is off, turn it on
@@ -64,10 +84,10 @@ class Track:
                 self.pedal = not self.pedal # Set the pedal status to the opposite
 
             # Change sound
-            elif item in self.sounds.keys(): 
+            elif key in self.sounds.keys(): 
                 if self.currentVoice != item: # If it's the same sound, we don't have to "change" it
                     self.currentVoice = item
-                    self.change_sound(interface, item) 
+                    self.change_sound(interface, key) 
 
             # Ignore anything we don't recognise
             else:

@@ -1,9 +1,211 @@
-MV 47
-59 59 59 59 - 59 59 61 62 66 - -
-- - - - - - - - - - - 59
-66 66 66 66 - 66 66 67 66 62 - -
-- - - - - - - - - - - 59
-59 59 59 59 - 59 59 61 62 66 - -
-BV _ _ 62 60 60 _ 59 _
-MV 66 66 66 66 - 66 66 67 69 67 - BV 54
-59 59 59 59 61 62 62 - - 61 - -
+xxxxx LINJE 2 xxxxx
+
+BAR 1:
+
+['MV']
+[54, 'eight', 60, 'pitch']
+
+BAR 2:
+
+[59, 'triplet_quart', 60, 'pitch']
+[59, 'triplet_quart', 60, 'pitch']
+[59, 'triplet_quart', 60, 'pitch']
+[59, 'triplet_eight', 60, 'pitch']
+[61, 'triplet_eight', 60, 'pitch']
+[59, 'triplet_eight', 60, 'pitch']
+[57, 'triplet_quart', 60, 'pitch']
+[57, 'triplet_quart', 60, 'pitch']
+
+BAR 3:
+
+[59, 'triplet_quart', 60, 'pitch']
+[61, 'triplet_quart', 60, 'pitch']
+[62, 'triplet_quart', 60, 'pitch']
+[66, 'triplet_half', 60, 'pitch']
+['P']
+['-', 'triplet_quart']
+
+BAR 4:
+
+['-', 'whole']
+
+BAR 5:
+
+['-', 'half']
+['-', 'quart']
+['-', 'eight']
+['P']*
+[59, 'eight', 60, 'pitch']
+
+BAR 6:
+
+[66, 'triplet_quart', 60, 'pitch']
+[66, 'triplet_quart', 60, 'pitch']
+[66, 'triplet_quart', 60, 'pitch']
+[66, 'triplet_half', 60, 'pitch']
+[66, 'triplet_quart', 60, 'pitch']
+
+BAR 7:
+
+[66, 'triplet_quart', 60, 'pitch']
+[67, 'triplet_quart', 60, 'pitch']
+[66, 'triplet_quart', 60, 'pitch']
+['P']
+['-', 'triplet_eight']
+[61, 'triplet_half', 60, 'pitch']
+['-', 'triplet_eight']
+
+BAR 8:
+
+['-', 'whole']
+
+BAR 9:
+
+['-', 'half']
+['-', 'quart']
+['-', 'eight']
+['P']*
+[54, 'eight', 60, 'pitch']
+
+xxxxx LINJE 2 xxxxx
+
+BAR 10:
+
+[59, 'triplet_quart', 60, 'pitch']
+[59, 'triplet_quart', 60, 'pitch']
+[59, 'triplet_quart', 60, 'pitch']
+[59, 'triplet_quart', 60, 'pitch']
+[59, 'triplet_quart', 60, 'pitch']
+[59, 'triplet_quart', 60, 'pitch']
+
+BAR 11:
+
+[59, 'triplet_quart', 60, 'pitch']
+[61, 'triplet_quart', 60, 'pitch']
+[62, 'triplet_quart', 60, 'pitch']
+[66, 'triplet_half', 60, 'pitch']
+['-', 'triplet_quart']
+
+BAR 12:
+
+['BV']
+['-', 'quart']
+['-', 'quart']
+[64, 'quart', 60, 'pitch']
+[62, 'quart', 60, 'pitch']
+
+BAR 13:
+
+[62, 'half', 60, 'pitch']
+[61, 'quart_dot', 60, 'pitch']
+['MV']
+[59, 'eight', 60, 'pitch']
+
+BAR 14:
+
+[66, 'triplet_quart', 60, 'pitch']
+[66, 'triplet_quart', 60, 'pitch']
+[66, 'triplet_quart', 60, 'pitch']
+[66, 'triplet_half', 60, 'pitch']
+[66, 'triplet_quart', 60, 'pitch']
+
+BAR 15:
+
+[66, 'triplet_quart', 60, 'pitch']
+[67, 'triplet_quart', 60, 'pitch']
+[69, 'triplet_quart', 60, 'pitch']
+[67, 'quart_dot', 60, 'pitch']
+['BV']
+[54, 'eight', 60, 'pitch']
+
+BAR 16:
+
+[59, 'triplet_quart', 60, 'pitch']
+[59, 'triplet_quart', 60, 'pitch']
+[59, 'triplet_quart', 60, 'pitch']
+[59, 'triplet_quart', 60, 'pitch']
+[61, 'triplet_quart', 60, 'pitch']
+[62, 'triplet_quart', 60, 'pitch']
+
+BAR 17:
+
+[62, 'half', 60, 'pitch']
+[61, 'quart_dot', 60, 'pitch']
+['MV']
+[54, 'eight', 60, 'pitch']
+
+xxxxx LINJE 3 xxxxx
+
+BAR 18:
+
+[59, 'triplet_quart', 60, 'pitch']
+[59, 'triplet_quart', 60, 'pitch']
+[59, 'triplet_quart', 60, 'pitch']
+[59, 'triplet_eight', 60, 'pitch']
+[61, 'triplet_eight', 60, 'pitch']
+[59, 'triplet_eight', 60, 'pitch']
+[57, 'triplet_quart', 60, 'pitch']
+[57, 'triplet_quart', 60, 'pitch']
+
+BAR 19:
+
+[59, 'triplet_quart', 60, 'pitch']
+[61, 'triplet_quart', 60, 'pitch']
+[62, 'triplet_quart', 60, 'pitch']
+[66, 'triplet_half', 60, 'pitch']
+['P']
+['-', 'triplet_quart']
+
+BAR 20:
+
+['-', 'whole']
+
+BAR 21:
+
+['-', 'half']
+['-', 'quart']
+['-', 'eight']
+['P']*
+[59, 'eight', 60, 'pitch']
+
+BAR 22:
+
+[66, 'triplet_quart', 60, 'pitch']
+[66, 'triplet_quart', 60, 'pitch']
+[66, 'triplet_quart', 60, 'pitch']
+[66, 'triplet_quart', 60, 'pitch']
+[66, 'triplet_quart', 60, 'pitch']
+[66, 'triplet_quart', 60, 'pitch']
+
+BAR 23:
+
+[66, 'triplet_half', 60, 'pitch']
+[71, 'triplet_quart', 60, 'pitch']
+['P']
+['-', 'triplet_quart']
+[73, 'triplet_half', 60, 'pitch']
+['P']*
+
+BAR 24:
+
+[74, 'triplet_eight', 60, 'pitch']
+[73, 'triplet_eight', 60, 'pitch']
+[71, 'triplet_eight', 60, 'pitch']
+['P']
+['-', 'triplet_eight']
+[73, 'triplet_quart_dot', 60, 'pitch']
+['-', 'half']
+['P']*
+
+BAR 25:
+
+[74, 'quart_dot', 60, 'pitch']
+[76, 'sixteenth', 60, 'pitch']
+[74, 'sixteenth', 60, 'pitch']
+[73, 'half', 60, 'pitch']
+['P']
+
+BAR 26:
+
+['-', 'half']
+['P']*
