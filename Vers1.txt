@@ -72,17 +72,17 @@ xxxxx LINJE 2 xxxxx
 BAR 10:
 
 [59, 'triplet_quart', 60, True]
+[59, 'triplet_quart', 60, -3]
 [59, 'triplet_quart', 60, True]
 [59, 'triplet_quart', 60, True]
-[59, 'triplet_quart', 60, True]
-[59, 'triplet_quart', 60, True]
+[59, 'triplet_quart', 60, -7]
 [59, 'triplet_quart', 60, True]
 
 BAR 11:
 
 [59, 'triplet_quart', 60, True]
-[61, 'triplet_quart', 60, True]
-[62, 'triplet_quart', 60, True]
+[61, 'triplet_quart', 60, -10]
+[62, 'triplet_quart', 60, 14]
 [66, 'triplet_half', 60, True]
 ['-', 'triplet_quart']
 
@@ -104,17 +104,17 @@ BAR 13:
 BAR 14:
 
 [66, 'triplet_quart', 60, True]
-[66, 'triplet_quart', 60, True]
+[66, 'triplet_quart', 60, -7]
 [66, 'triplet_quart', 60, True]
 [66, 'triplet_half', 60, True]
-[66, 'triplet_quart', 60, True]
+[64, 'triplet_quart', 60, True]
 
 BAR 15:
 
-[66, 'triplet_quart', 60, True]
+[66, 'triplet_quart', 60, -4]
 [67, 'triplet_quart', 60, True]
-[69, 'triplet_quart', 60, True]
-[67, 'quart_dot', 60, True]
+[69, 'triplet_quart', 60, 3]
+[67, 'quart_dot', 60, 4]
 ['BV']
 [54, 'eight', 60, True]
 
@@ -138,10 +138,10 @@ xxxxx LINJE 3 xxxxx
 
 BAR 18:
 
-[59, 'triplet_quart', 60, True]
-[59, 'triplet_quart', 60, True]
-[59, 'triplet_quart', 60, True]
-[59, 'triplet_eight', 60, True]
+[59, 'triplet_quart', 60, -16]
+[59, 'triplet_quart', 60, -12]
+[59, 'triplet_quart', 60, -8]
+[59, 'triplet_eight', 60, -3]
 [61, 'triplet_eight', 60, True]
 [59, 'triplet_eight', 60, True]
 [57, 'triplet_quart', 60, True]
@@ -153,19 +153,21 @@ BAR 19:
 [61, 'triplet_quart', 60, True]
 [62, 'triplet_quart', 60, True]
 [66, 'triplet_half', 60, True]
-['P']
 ['-', 'triplet_quart']
 
 BAR 20:
 
-['-', 'whole']
+['BV']
+
+[64, 'half', 60, True]
+[62, 'half', 60, True]
 
 BAR 21:
 
-['-', 'half']
-['-', 'quart']
+[62, 'half', 60, True]
+[61, 'quart', 60, True]
 ['-', 'eight']
-['P']*
+['MV']
 [59, 'eight', 60, True]
 
 BAR 22:
