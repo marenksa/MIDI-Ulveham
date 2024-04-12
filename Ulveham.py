@@ -8,6 +8,7 @@ class Track:
     bpm = 130
     score = []
     currentVoice = ''
+    pedal = False
 
     rests = {
         '-': (2*60/bpm)/3, # 1/4th note triplet
@@ -53,6 +54,14 @@ class Track:
             # "Play" rest
             elif item in self.rests.keys():
                 time.sleep(self.rests[item])
+
+            # Adjust pedal
+            elif item == 'P':
+                if self.pedal: # If pedal is on, turn it off
+                    interface.send_message([0xB0, 0x40, 0]) 
+                else: # If pedal is off, turn it on
+                    interface.send_message([0xB0, 0x40, 127]) 
+                self.pedal = not self.pedal # Set the pedal status to the opposite
 
             # Change sound
             elif item in self.sounds.keys(): 
