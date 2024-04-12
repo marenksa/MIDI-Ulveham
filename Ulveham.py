@@ -63,13 +63,22 @@ class Track:
     # Play the track indicated by the score
     def play(self, interface):
 
+        interface.send_message([0xE0, 0, 64]) # Makes sure the pitch wheel is set correctly
+
         for item in self.score:
             key = item[0]
+
             # Play note from score
             if isinstance(key, int): 
+                if not isinstance(item[3], bool): # Pitch is modified
+                    interface.send_message([0xE0, 0, 64+item[3]]) # Modify pitch
+
                 interface.send_message([0x90, key, item[2]]) # Note on
-                time.sleep(self.calc_note_length(item[1]))
+                time.sleep(self.calc_note_length(item[1])) # Hold
                 interface.send_message([key, 0]) # Note "off"
+
+                if not isinstance(item[3], bool): # If pitch is modified
+                    interface.send_message([0xE0, 0, 64]) # Reset pitch wheel
 
             # "Play" rest
             elif key == '-':
